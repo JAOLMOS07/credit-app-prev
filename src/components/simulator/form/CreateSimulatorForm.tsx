@@ -72,15 +72,19 @@ export function Simulator({ product }: SimulatorProps) {
                             />
                             <div className="w-full bg-gray-100 rounded-full h-2 mt-2">
                                 <div
-                                    className={`h-2 rounded-full transition-all duration-300`}
+                                    className="h-2 rounded-full transition-all duration-300"
                                     style={{
-                                        width: `${((amount - product.minAmount) / (product.maxAmount - product.minAmount)) * 100}%`,
-                                        backgroundColor: amount < product.minAmount || amount > product.maxAmount
-                                            ? "#fb923c"
-                                            : product.color,
+                                        width: `${
+                                            ((Math.min(amount, product.maxAmount) - product.minAmount) / (product.maxAmount - product.minAmount)) * 100
+                                        }%`,
+                                        backgroundColor:
+                                            amount < product.minAmount || amount > product.maxAmount
+                                                ? "#fb923c"
+                                                : product.color,
                                     }}
                                 />
                             </div>
+
                         </div>
 
                         <div>
@@ -95,15 +99,19 @@ export function Simulator({ product }: SimulatorProps) {
                             />
                             <div className="w-full bg-gray-100 rounded-full h-2 mt-2">
                                 <div
-                                    className={`h-2 rounded-full transition-all duration-300`}
+                                    className="h-2 rounded-full transition-all duration-300"
                                     style={{
-                                        width: `${((term - product.minTerm) / (product.maxTerm - product.minTerm)) * 100}%`,
-                                        backgroundColor: term < product.minTerm || term > product.maxTerm
-                                            ? "#fb923c"
-                                            : product.color,
+                                        width: `${
+                                            ((Math.min(term, product.maxTerm) - product.minTerm) / (product.maxTerm - product.minTerm)) * 100
+                                        }%`,
+                                        backgroundColor:
+                                            term < product.minTerm || term > product.maxTerm
+                                                ? "#fb923c"
+                                                : product.color,
                                     }}
                                 />
                             </div>
+
                         </div>
                         <Button variant={"outlined"} onClick={handleSimulate} fullWidth>
                             Simular
@@ -114,7 +122,7 @@ export function Simulator({ product }: SimulatorProps) {
 
                     {error && (
                         <div className="flex items-center gap-2 text-red-600 text-sm mt-2">
-                            <FiAlertCircle className="w-4 h-4" />
+                            <FiAlertCircle className="w-4 h-4"/>
                             {error}
                         </div>
                     )}
