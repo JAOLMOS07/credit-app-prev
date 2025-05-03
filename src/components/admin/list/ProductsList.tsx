@@ -1,6 +1,7 @@
 "use client";
 
 import ProductItemCard from "@/components/shared/card/ProductItemCard";
+import { useState } from "react";
 
 const sampleProducts = [
     {
@@ -66,16 +67,24 @@ const sampleProducts = [
 ];
 
 export default function ProductList() {
+    const [search, setSearch] = useState("");
+
+    const filteredProducts = sampleProducts.filter((product) =>
+        product.name.toLowerCase().includes(search.toLowerCase())
+    );
+
     return (
         <div className="p-6 space-y-6">
             <input
                 type="text"
                 placeholder="Buscar producto..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 className="w-full max-w-md p-2 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800"
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sampleProducts.map((product) => (
+                {filteredProducts.map((product) => (
                     <ProductItemCard key={product.id} product={product} />
                 ))}
             </div>
