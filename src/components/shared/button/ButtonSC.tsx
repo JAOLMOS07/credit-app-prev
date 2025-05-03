@@ -35,16 +35,27 @@ export default function Button({
     const baseStyles =
         "inline-flex items-center justify-center rounded-md py-2 px-4 text-sm transition-all focus:outline-none disabled:pointer-events-none disabled:opacity-50";
 
-    const variants: Record<string, string> = {
-        filled:
-            "bg-indigo-400 text-white border border-transparent shadow-md hover:shadow-lg focus:bg-indigo-300 active:bg-indigo-300 hover:bg-indigo-300",
-        gradient:
-            "bg-gradient-to-tr from-indigo-400 to-indigo-300 text-white border border-transparent shadow-md hover:shadow-lg focus:bg-indigo-300 active:bg-indigo-300 hover:bg-indigo-300",
-        outlined:
-            "border border-indigo-300 text-indigo-600 shadow-sm hover:shadow-lg hover:text-white hover:bg-indigo-400 hover:border-indigo-400 focus:text-white focus:bg-indigo-400 active:bg-indigo-400",
-        text:
-            "border border-transparent text-indigo-600 hover:bg-indigo-100 focus:bg-indigo-100 active:bg-indigo-100",
-    };
+        const variants: Record<string, string> = {
+            filled: `
+              bg-indigo-400 text-white border border-transparent shadow-md
+              hover:shadow-lg hover:bg-indigo-500 active:bg-indigo-600
+              dark:bg-indigo-600 dark:hover:bg-indigo-500 dark:active:bg-indigo-400
+            `,
+            gradient: `
+              bg-gradient-to-tr from-indigo-400 to-indigo-300 text-white border border-transparent shadow-md
+              hover:shadow-lg hover:from-indigo-500 hover:to-indigo-400
+              dark:from-indigo-600 dark:to-indigo-500 dark:hover:from-indigo-500 dark:hover:to-indigo-400
+            `,
+            outlined: `
+              border border-indigo-300 text-indigo-600 shadow-sm
+              hover:shadow-lg hover:text-white hover:bg-indigo-400 hover:border-indigo-400
+              dark:border-indigo-500 dark:text-indigo-300 dark:hover:bg-indigo-600 dark:hover:border-indigo-400 dark:hover:text-white
+            `,
+            text: `
+              border border-transparent text-indigo-600 hover:bg-indigo-100
+              dark:text-indigo-300 dark:hover:bg-indigo-800
+            `,
+          };
 
     const iconMargin =
         icon && iconPosition === "left"

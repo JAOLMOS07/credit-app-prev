@@ -32,48 +32,53 @@ export default function ProductItemCard({ product }: Props) {
     };
 
     return (
-        <div className="relative bg-white rounded-2xl shadow-md p-4 overflow-hidden">
-            <div
-                className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20"
-                style={{ backgroundColor: product.color }}
-            />
-            <div className="relative z-10 space-y-2">
-                <h3 className="text-lg font-semibold text-slate-800">{product.name}</h3>
-                <p className="text-sm text-slate-600">Tasa: {product.rate}% anual</p>
-                <p className="text-sm text-slate-600">
-                    Monto: ${product.minAmount} - ${product.maxAmount}
-                </p>
-                <p className="text-sm text-slate-600">
-                    Plazo: {product.minTerm} a {product.maxTerm} meses
-                </p>
+            <div className="relative bg-white dark:bg-slate-900 rounded-2xl shadow-md dark:shadow-lg p-4 overflow-hidden transition-colors">
+        <div
+            className="absolute -top-8 -right-8 w-32 h-32 rounded-full opacity-20 dark:opacity-10"
+            style={{ backgroundColor: product.color }}
+        />
+        <div className="relative z-10 space-y-2">
+            <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-100">
+                {product.name}
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+                Tasa: {product.rate}% anual
+            </p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+                Monto: ${product.minAmount} - ${product.maxAmount}
+            </p>
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+                Plazo: {product.minTerm} a {product.maxTerm} meses
+            </p>
 
-                <div className="flex justify-end gap-2 mt-4">
-                    <button
-                        onClick={() => setIsModalOpen(true)}
-                        className="text-red-600 hover:text-red-800 transition"
-                    >
-                        <LuTrash size={18} />
-                    </button>
-                    <button
-                        onClick={handleEdit}
-                        className="text-blue-600 hover:text-blue-800 transition"
-                    >
-                        <LuPencil size={18} />
-                    </button>
-                    <button
-                        onClick={handleSimulate}
-                        className="text-green-600 hover:text-green-800 transition"
-                    >
-                        <FiShoppingCart size={18} />
-                    </button>
-                </div>
+            <div className="flex justify-end gap-2 mt-4">
+                <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="text-red-600 hover:text-red-800 dark:hover:text-red-500 transition"
+                >
+                    <LuTrash size={18} />
+                </button>
+                <button
+                    onClick={handleEdit}
+                    className="text-blue-600 hover:text-blue-800 dark:hover:text-blue-400 transition"
+                >
+                    <LuPencil size={18} />
+                </button>
+                <button
+                    onClick={handleSimulate}
+                    className="text-green-600 hover:text-green-800 dark:hover:text-green-400 transition"
+                >
+                    <FiShoppingCart size={18} />
+                </button>
             </div>
-
-            <DeleteConfirmModal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                onConfirm={handleDelete}
-            />
         </div>
+
+        <DeleteConfirmModal
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            onConfirm={handleDelete}
+        />
+    </div>
+
     );
 }

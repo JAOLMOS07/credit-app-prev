@@ -87,18 +87,18 @@ export function EditProductForm() {
 
     return (
         <form
-            onSubmit={handleSubmit}
-            className="relative overflow-hidden bg-white space-y-4 p-6 rounded-xl "
+        onSubmit={handleSubmit}
+        className="relative overflow-hidden bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 space-y-4 p-6 rounded-xl shadow-md dark:shadow-lg transition-colors"
         >
-
-            <div
-                className="absolute -top-10 -left-10 w-40 h-40 rounded-full opacity-20"
-                style={{backgroundColor: form.color}}
-            ></div>
-            <div
-                className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-20"
-                style={{backgroundColor: form.color}}
-            ></div>
+        {/* Círculos decorativos */}
+        <div
+            className="absolute -top-10 -left-10 w-40 h-40 rounded-full opacity-20 dark:opacity-10"
+            style={{ backgroundColor: form.color }}
+        />
+        <div
+            className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-20 dark:opacity-10"
+            style={{ backgroundColor: form.color }}
+        />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Input
