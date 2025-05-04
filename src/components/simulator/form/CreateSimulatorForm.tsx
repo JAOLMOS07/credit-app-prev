@@ -12,18 +12,18 @@ type SimulatorProps = {
 };
 
 export function Simulator({ product }: SimulatorProps) {
-    const [amount, setAmount] = useState(product.minAmount);
-    const [term, setTerm] = useState(product.minTerm);
+    const [amount, setAmount] = useState(product.min_amount);
+    const [term, setTerm] = useState(product.min_term);
     const [showResult, setShowResult] = useState(false);
     const [error, setError] = useState("");
 
     const handleSimulate = () => {
-        if (amount < product.minAmount || amount > product.maxAmount) {
+        if (amount < product.min_amount || amount > product.max_amount) {
             setError("El monto ingresado está fuera del rango permitido.");
             return;
         }
 
-        if (term < product.minTerm || term > product.maxTerm) {
+        if (term < product.min_term || term > product.max_term) {
             setError("El plazo ingresado está fuera del rango permitido.");
             return;
         }
@@ -49,10 +49,10 @@ export function Simulator({ product }: SimulatorProps) {
         <h2 className="text-xl font-semibold text-slate-800 dark:text-slate-100">{product.name}</h2>
         <p className="text-sm text-slate-600 dark:text-slate-400">Tasa de interés: {product.rate}%</p>
         <p className="text-sm text-slate-600 dark:text-slate-400">
-            Monto permitido: ${product.minAmount.toLocaleString()} - ${product.maxAmount.toLocaleString()}
+            Monto permitido: ${product.min_amount.toLocaleString()} - ${product.max_amount.toLocaleString()}
         </p>
         <p className="text-sm text-slate-600 dark:text-slate-400">
-            Plazo permitido: {product.minTerm} - {product.maxTerm} meses
+            Plazo permitido: {product.min_term} - {product.max_term} meses
         </p>
     </div>
 
@@ -63,8 +63,8 @@ export function Simulator({ product }: SimulatorProps) {
                     <label className="block mb-1 text-sm font-medium text-slate-800 dark:text-slate-200">Monto</label>
                     <input
                         type="number"
-                        min={product.minAmount}
-                        max={product.maxAmount}
+                        min={product.min_amount}
+                        max={product.max_amount}
                         step={1000}
                         value={amount}
                         onChange={(e) => setAmount(Number(e.target.value))}
@@ -75,10 +75,10 @@ export function Simulator({ product }: SimulatorProps) {
                             className="h-2 rounded-full transition-all duration-300"
                             style={{
                                 width: `${
-                                    ((Math.min(amount, product.maxAmount) - product.minAmount) / (product.maxAmount - product.minAmount)) * 100
+                                    ((Math.min(amount, product.max_amount) - product.min_amount) / (product.max_amount - product.min_amount)) * 100
                                 }%`,
                                 backgroundColor:
-                                    amount < product.minAmount || amount > product.maxAmount
+                                    amount < product.min_amount || amount > product.max_amount
                                         ? "#fb923c"
                                         : product.color,
                             }}
@@ -90,8 +90,8 @@ export function Simulator({ product }: SimulatorProps) {
                     <label className="block mb-1 text-sm font-medium text-slate-800 dark:text-slate-200">Plazo (meses)</label>
                     <input
                         type="number"
-                        min={product.minTerm}
-                        max={product.maxTerm}
+                        min={product.min_term}
+                        max={product.max_term}
                         value={term}
                         onChange={(e) => setTerm(Number(e.target.value))}
                         className="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -101,10 +101,10 @@ export function Simulator({ product }: SimulatorProps) {
                             className="h-2 rounded-full transition-all duration-300"
                             style={{
                                 width: `${
-                                    ((Math.min(term, product.maxTerm) - product.minTerm) / (product.maxTerm - product.minTerm)) * 100
+                                    ((Math.min(term, product.max_term) - product.min_term) / (product.max_term - product.min_term)) * 100
                                 }%`,
                                 backgroundColor:
-                                    term < product.minTerm || term > product.maxTerm
+                                    term < product.min_term || term > product.max_term
                                         ? "#fb923c"
                                         : product.color,
                             }}
