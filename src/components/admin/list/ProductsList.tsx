@@ -37,7 +37,7 @@ export default function ProductList() {
     ) ?? [];
 
     return (
-        <div className="p-6 space-y-6">
+        <div className="p-2 space-y-6">
             {loading ? (
                 <Loader />
             ) : (
@@ -50,7 +50,7 @@ export default function ProductList() {
                         className="w-full max-w-md p-2 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800"
                     />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                         {filteredProducts.map((product) => (
                             <ProductItemCard key={product.id} product={product} refresh={refresh} />
                         ))}
