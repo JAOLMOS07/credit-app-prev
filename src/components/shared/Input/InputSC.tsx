@@ -10,6 +10,9 @@ type InputProps = {
     icon?: ReactNode;
     iconPosition?: "left" | "right";
     error?: string;
+    min?: number;
+    max?: number;
+    step?: number;
     className?: string;
 };
 export default function Input({
@@ -20,6 +23,9 @@ export default function Input({
     value,
     onChange,
     icon,
+    min,
+    max,
+    step,
     iconPosition = "right",
     error,
     className = "",
@@ -59,6 +65,9 @@ export default function Input({
             placeholder={placeholder}
             name={name}
             value={value}
+            min={min}
+            max={max}
+            step={step}
             onChange={onChange}
             className={`${baseInputStyles} ${placeholderColor} ${textColor} ${borderStyles} ${iconPadding} ${className}`}
           />

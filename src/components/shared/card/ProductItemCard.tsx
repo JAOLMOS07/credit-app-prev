@@ -51,7 +51,7 @@ export default function ProductItemCard({ product }: Props) {
                 Plazo: {product.minTerm} a {product.maxTerm} meses
             </p>
 
-            <div className="flex justify-end gap-2 mt-4">
+            <div className="flex justify-around gap-2 mt-4">
                 <button
                     onClick={() => setIsModalOpen(true)}
                     className="text-red-600 hover:text-red-800 dark:hover:text-red-500 transition"
