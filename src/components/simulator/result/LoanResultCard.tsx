@@ -28,7 +28,7 @@ export function LoanResultCard({
     const months = term % 12;
 
     return (
-        <div className="relative bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl p-2 space-y-6 shadow-lg dark:shadow-md transition-colors">
+        <div className="relative bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl p-3 space-y-6 shadow-lg dark:shadow-md transition-colors">
             <button
                 onClick={onBack}
                 className="absolute top-4 left-4 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200"

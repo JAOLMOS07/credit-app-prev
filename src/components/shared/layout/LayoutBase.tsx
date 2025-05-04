@@ -11,7 +11,7 @@ type LayoutBaseProps = {
 export default function LayoutBase({ title, children, actionButton, showBackButton }: LayoutBaseProps) {
     return (
         <section className="min-h-screen bg-slate-50 dark:bg-slate-900 text-indigo-800 dark:text-indigo-100 p-6">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
                 <div className="flex items-center justify-between mb-6">
                     {showBackButton && (
                         <button

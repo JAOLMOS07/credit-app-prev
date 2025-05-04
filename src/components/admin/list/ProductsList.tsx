@@ -5,6 +5,7 @@ import {useEffect, useState} from "react";
 import api from "@/lib/api";
 import {Product} from "@/models/Product";
 import Loader from "@/components/loader/loader";
+import {MdInbox} from "react-icons/md";
 
 
 export default function ProductList() {
@@ -51,10 +52,19 @@ export default function ProductList() {
                     />
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {filteredProducts.map((product) => (
-                            <ProductItemCard key={product.id} product={product} refresh={refresh} />
-                        ))}
+                        {filteredProducts.length === 0 ? (
+                            <div
+                                className="col-span-full flex flex-col items-center justify-center py-10 text-slate-400 dark:text-slate-500">
+                                <MdInbox className="text-6xl mb-2"/>
+                                <p className="text-lg">No hay productos</p>
+                            </div>
+                        ) : (
+                            filteredProducts.map((product) => (
+                                <ProductItemCard key={product.id} product={product} refresh={refresh}/>
+                            ))
+                        )}
                     </div>
+
                 </>
             )}
         </div>
