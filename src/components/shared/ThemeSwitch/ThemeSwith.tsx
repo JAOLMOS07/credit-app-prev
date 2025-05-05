@@ -15,7 +15,7 @@ export const ThemeSwitcher = () => {
     if (!mounted) {
         return (
             <button className="p-2 rounded-full bg-gray-200 text-gray-700">
-                <FaMoon size={20} />
+                <FaMoon size={30} />
             </button>
         );
     }
@@ -23,7 +23,7 @@ export const ThemeSwitcher = () => {
     return (
         <button
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-yellow-300 transition-colors duration-200"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-yellow-300 transition-colors duration-2000"
             aria-label={theme === 'dark' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'}
         >
             {theme === 'dark' ? <FaSun size={20} /> : <FaMoon size={20} />}
